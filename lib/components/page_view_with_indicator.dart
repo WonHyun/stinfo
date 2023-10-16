@@ -18,7 +18,11 @@ class _PageViewWithIndicatorState extends State<PageViewWithIndicator> {
   final controller =
       PageController(initialPage: 1, viewportFraction: 1, keepPage: false);
 
-  final List<String> path = ["home_01.png", "home_02.png", "home_03.png"];
+  final List<String> path = [
+    "home_text_01.png",
+    "home_text_02.png",
+    "home_text_03.png"
+  ];
 
   @override
   void initState() {
@@ -61,6 +65,7 @@ class _PageViewWithIndicatorState extends State<PageViewWithIndicator> {
               image: AssetImage('assets/images/${path[index]}'),
               fit: BoxFit.fitHeight,
             ),
+            borderRadius: BorderRadius.circular(8),
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(8),
