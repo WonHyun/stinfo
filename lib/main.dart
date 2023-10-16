@@ -96,7 +96,7 @@ class _MainPageState extends State<MainPage>
         body: TabBarView(
           controller: _tabController,
           children: [
-            const HomePage(),
+            HomePage(),
             TrendPage(),
             const InfoDetailPage(),
             ComparePage(),

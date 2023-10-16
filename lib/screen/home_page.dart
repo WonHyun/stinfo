@@ -8,8 +8,31 @@ import '../components/category_grid.dart';
 import '../components/category_header.dart';
 import '../components/image_card.dart';
 
+class MagazineThumb {
+  String postId;
+  String imgPath;
+  String subject;
+
+  MagazineThumb({
+    required this.postId,
+    required this.imgPath,
+    required this.subject,
+  });
+}
+
 class HomePage extends StatelessWidget {
-  const HomePage({
+  final List<MagazineThumb> magazineList = [
+    MagazineThumb(
+        postId: "1", imgPath: "magazine_01.png", subject: "한국 실험미술을 재조명하다"),
+    MagazineThumb(
+        postId: "2", imgPath: "magazine_02.png", subject: "한국 맥주 현대사"),
+    MagazineThumb(
+        postId: "3", imgPath: "magazine_03.png", subject: "전세사기와 포퓰리즘"),
+    MagazineThumb(
+        postId: "4", imgPath: "magazine_04.png", subject: "2024 봄 여름 여성 패션쇼"),
+  ];
+
+  HomePage({
     super.key,
   });
 
@@ -94,33 +117,20 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const ImageCard(
-                img: "magazine_01.png",
-                subject: "한국 실험미술을 재조명하다",
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const ImageCard(
-                img: "magazine_02.png",
-                subject: "한국 맥주 현대사",
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const ImageCard(
-                img: "magazine_03.png",
-                subject: "전세사기와 포퓰리즘",
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const ImageCard(
-                img: "magazine_04.png",
-                subject: "2024 봄 여름 여성 패션쇼",
-              ),
-              const SizedBox(
-                height: 20,
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: magazineList.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
+                    child: ImageCard(
+                      img: magazineList[index].imgPath,
+                      subject: magazineList[index].subject,
+                      onTap: () => {},
+                    ),
+                  );
+                },
               ),
             ],
           ),

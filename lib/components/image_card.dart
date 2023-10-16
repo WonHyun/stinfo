@@ -3,19 +3,25 @@ import 'package:flutter/material.dart';
 class ImageCard extends StatelessWidget {
   final String img;
   final String subject;
+  final VoidCallback onTap;
 
   const ImageCard({
     super.key,
     required this.img,
     required this.subject,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
+      fit: StackFit.passthrough,
       alignment: Alignment.center,
       children: [
-        Image.asset('assets/images/$img'),
+        Image.asset(
+          'assets/images/$img',
+          fit: BoxFit.fitWidth,
+        ),
         Container(
           width: 300,
           alignment: Alignment.center,
