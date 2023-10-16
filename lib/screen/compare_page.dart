@@ -169,63 +169,68 @@ class GatherInfoCard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image(
-                  image: AssetImage('assets/images/${info.imgPath}'),
+                SizedBox(
+                  width: 80,
+                  child: Image(
+                    image: AssetImage('assets/images/${info.imgPath}'),
+                  ),
                 ),
                 const SizedBox(
                   width: 20,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      info.brand,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      info.itemName,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text("모집금액 ${info.getGatherAmountString()}"),
-                    Text("매각금액 ${info.getSellAmountString()}"),
-                    Text("모집기간 ${info.gatherDuration}"),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        info.getPercentString(),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        info.brand,
                         style: const TextStyle(
                           fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        info.itemName,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 18,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    LinearPercentIndicator(
-                      width: 260,
-                      animation: true,
-                      lineHeight: 10.0,
-                      animationDuration: 2000,
-                      percent: info.gatherPercent,
-                      barRadius: const Radius.circular(8),
-                      progressColor: Colors.greenAccent,
-                    ),
-                  ],
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text("모집금액 ${info.getGatherAmountString()}"),
+                      Text("매각금액 ${info.getSellAmountString()}"),
+                      Text("모집기간 ${info.gatherDuration}"),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          info.getPercentString(),
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      LinearPercentIndicator(
+                        animation: true,
+                        lineHeight: 10.0,
+                        animationDuration: 2000,
+                        percent: info.gatherPercent,
+                        barRadius: const Radius.circular(8),
+                        progressColor: Colors.greenAccent,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
