@@ -45,7 +45,7 @@ class ImageCard extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               borderRadius: BorderRadius.circular(20),
-              onTap: () => {},
+              onTap: onTap,
             ),
           ),
         ),

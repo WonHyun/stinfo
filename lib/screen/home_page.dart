@@ -127,7 +127,9 @@ class HomePage extends StatelessWidget {
                     child: ImageCard(
                       img: magazineList[index].imgPath,
                       subject: magazineList[index].subject,
-                      onTap: () => {},
+                      onTap: () => {
+                        tabController.animateTo(4),
+                      },
                     ),
                   );
                 },
