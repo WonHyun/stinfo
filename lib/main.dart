@@ -97,7 +97,7 @@ class _MainPageState extends State<MainPage>
           controller: _tabController,
           children: [
             const HomePage(),
-            const TrendPage(),
+            TrendPage(),
             const InfoDetailPage(),
             ComparePage(),
             const MagazinePage(),
