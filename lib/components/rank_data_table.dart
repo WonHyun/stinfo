@@ -76,7 +76,7 @@ class RankDataTable extends StatelessWidget {
           ),
           DataCell(
             SizedBox(
-              width: 200,
+              width: 180,
               child: Text(
                 listData[index].itemName,
                 overflow: TextOverflow.ellipsis,
