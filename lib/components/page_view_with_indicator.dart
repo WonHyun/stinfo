@@ -56,23 +56,32 @@ class _PageViewWithIndicatorState extends State<PageViewWithIndicator> {
 
     final pages = List.generate(
       3,
-      (index) => Material(
-        color: Colors.transparent,
-        child: Ink(
-          padding: const EdgeInsets.symmetric(horizontal: 46.0),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/${path[index]}'),
-              fit: BoxFit.fitHeight,
+      (index) => Container(
+        padding: const EdgeInsets.all(0.0),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: Positioned(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image(
+                    image: AssetImage('assets/images/${path[index]}'),
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
+              ),
             ),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(8),
-            onTap: () {
-              tabController.animateTo(2);
-            },
-          ),
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(8),
+                onTap: () {
+                  tabController.animateTo(2);
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -80,7 +89,7 @@ class _PageViewWithIndicatorState extends State<PageViewWithIndicator> {
     return Column(
       children: [
         SizedBox(
-          height: 480,
+          height: 500,
           child: PageView.builder(
             controller: controller,
             itemBuilder: (_, index) {
